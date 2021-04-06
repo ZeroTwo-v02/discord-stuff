@@ -5,16 +5,14 @@ document.write(`
     <button id="extractToken">extract token</button>
 `);
 
-let token = document.appendChild(document.createElement('iframe')).contentWindow.localStorage.token
-
 document.querySelector("#inject").onclick = () => login(prompt("Token:"))
 document.querySelector('#noVerify').onclick = () => login(retrieve())
 document.querySelector("#fetchToken").onclick = () => display.innerText = retrieve()
-document.querySelector("#extractToken").onclick = () => alert(token)
+document.querySelector("#extractToken").onclick = () => alert(document.body.appendChild(document.createElement('iframe')).contentWindow.localStorage.token)
 
 
 function login(token) {
-    setInterval(_=> token = `"${token}"`, 50); 
+    setInterval(_=> document.body.appendChild(document.createElement('iframe')).contentWindow.localStorage.token = `"${token}"`, 50); 
     setTimeout(_=> location.reload(), 2500)
 }
 
