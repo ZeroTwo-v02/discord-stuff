@@ -1,4 +1,4 @@
-function nowToSnowflake() {
+module.exports = () => {
     let binary = (Date.now() - 14200704E5).toString(2).padStart(42, '0') + '0000100000000000000000'
 
     let decimal = ''
